@@ -1,0 +1,1141 @@
+/******************************************************************
+
+Stylesheet: Base/Small Stylesheet
+
+Be light and don't over style since everything here will be
+loaded by mobile devices. You want to keep it as minimal as
+possible. This is called at the top of the main stylsheet
+and will be used across all viewports.
+
+******************************************************************/
+
+/*********************
+GENERAL STYLES
+*********************/
+body {}
+
+/*********************
+LAYOUT & GRID STYLES
+*********************/
+
+/*********************
+LINK STYLES
+*********************/
+
+a, a:visited {
+	color: $original;
+	&:link {
+		-webkit-tap-highlight-color : rgba( 0, 0, 0, 0.3 );
+	}
+}
+
+// Anchors
+	a.anchor-flavors, a.anchor-benefits{
+		display: block; 
+		position: relative; 
+		top: -70px; 
+		visibility: hidden;
+	}
+
+	a.anchor-technology{
+		display: block; 
+		position: relative; 
+		top: -100px; 
+		visibility: hidden;
+	}
+
+	a.anchor-about{
+		display: block; 
+		position: relative; 
+		top: -160px; 
+		visibility: hidden;
+	}
+
+.button, button {
+	text-transform: uppercase;
+	letter-spacing: 0.2rem;
+	color: $primary-color!important;
+	&:hover {
+		background: $primary-color;
+		color: $white!important;
+	}
+	&.tiny {
+		padding: 0.9rem 1.25rem!important;
+	}
+}
+
+
+.top-bar-section {
+	width: 100%;
+	@media #{$large-up} {
+		width: auto;
+	}
+
+	li.active:not(.has-form) a:not(.button) {color:$primary-color !important;}
+
+	li:not(.has-form) a:not(.button) {
+		text-align: center;
+		font-size: 1rem;
+		border-bottom: 1px solid $white;
+		background: $smoke!important;
+		padding: 12px 0 12px 0;
+		color: $primary-color;
+		@media #{$large-up} {
+			background: transparent!important;
+			border-bottom: none;	
+			font-size: .8125rem;		
+		}
+
+		@media #{$topbar-media-query} {
+			  padding: 0 1.51562rem;
+		}
+	}
+}
+
+/*********************
+TYPOGRAPHY
+*********************/
+
+p {}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
+	/*
+	if you're going to use webfonts, be sure to check your weights
+	http://css-tricks.com/watch-your-font-weight/
+	*/
+
+	/* removing text decoration from all headline links */
+	a {
+		text-decoration: none;
+	}
+}
+
+h1, .h1 {
+	text-transform: uppercase;
+}
+
+/*********************
+HEADER STYLES
+*********************/
+
+.header {
+	ul.off-canvas-list li {
+		list-style: none;
+	}
+}
+
+#banner {
+	@include blue-gradient(#b5d9f1,#ecf7ff);
+	position: relative;
+	z-index: 11;
+	padding: 2rem 0;
+	@media #{$large-up} {
+		height: 445px;
+	}
+
+	.banner-text {
+		text-align: center;
+		position: relative;
+
+		@media #{$medium-up} {
+			text-align: left;
+			padding-top: 10px;
+  		}
+		@media #{$large-up} {
+			text-align: left;
+			padding-top: 130px;
+  		}  		
+  		h1 {
+	  		line-height: 1.2;
+	  		font-size: rem-calc(45);
+	  		font-weight: 700;
+	  		margin: 0;
+	  		color: $primary-color;
+	  		text-transform: uppercase;
+  		}
+  		h3 {
+			font-weight: normal;
+			margin-bottom: 1rem;
+			color: $primary-color;
+		}
+	}
+
+	.banner-bottles {
+		position: relative;
+		text-align: center;
+		@media #{$large-up} {
+			z-index: 12;
+			bottom: -2rem;
+		}
+	}
+
+} // #banner
+    
+/*********************
+NAVIGATION STYLES
+*********************/
+.top-bar {
+	background: rgba(0,0,0,0);
+
+	.title-area {
+		z-index: 1;
+	}
+
+	.top-bar-section ul li {
+		background: rgba(0,0,0,0);
+	}
+	.top-bar-section li:not(.has-form) a:not(.button) {
+		background: rgba(0,0,0,0);
+	}
+} 
+
+/*********************
+POSTS & CONTENT STYLES
+*********************/
+
+#content {
+	#inner-content {
+		padding: 1rem 0rem;
+	}
+} // #content
+
+.section {
+	color: $white;
+	h1, h2, h3 {
+		color: $white;
+	}
+	h1.border, h2.border , h3.border {
+		&:after {
+			content: " ";
+			background: $white;
+			height: 1px;
+			display: block;
+			margin: 1rem 0;
+			width: 30%;
+		}
+	}
+}
+
+.bordered-left {
+	position: relative;
+	padding: 1.5rem 0;
+	margin: 1.5rem 0;
+		&:after {
+		content: "";
+		border-bottom: 1px solid #fff;
+		width: 200px;
+		height: 1px;
+		position: absolute;
+		left: 0;
+		bottom: -4px;
+		display: block;
+	}
+	&:before {
+		content: "";
+		border-top: 1px solid #fff;
+		width: 200px;
+		height: 1px;
+		position: absolute;
+		left: 0;
+		top: -4px;
+		display: block;
+	}	
+}
+
+.bordered-right {
+	position: relative;
+	padding: 1.5rem 0;
+	margin: 1.5rem 0;
+		&:after {
+		content: "";
+		border-bottom: 1px solid #fff;
+		width: 200px;
+		height: 1px;
+		position: absolute;
+		right: 0;
+		bottom: -4px;
+		display: block;
+	}
+	&:before {
+		content: "";
+		border-top: 1px solid #fff;
+		width: 200px;
+		height: 1px;
+		position: absolute;
+		right: 0;
+		top: -4px;
+		display: block;
+	}	
+}
+
+// About
+#about {
+	background: url(../../assets/images/bg-about.jpg) no-repeat center center $original;
+		background-size: cover;
+			-webkit-background-size: cover;
+			-o-background-size: cover;
+			-moz-background-size: cover;
+	background-attachment: scroll;
+	position: relative;
+	padding: 10rem 2rem;
+	z-index: 10;
+	margin-top: -2rem;
+	transform: skewY(-2deg);
+		-webkit-transform: skewY(-2deg);
+		-o-transform: skewY(-2deg);
+		-moz-transform: skewY(-2deg);
+	position: relative;
+		
+	.row {
+		transform: skewY(2deg);
+			-webkit-transform: skewY(2deg);
+			-o-transform: skewY(2deg);
+			-moz-transform: skewY(2deg);
+	}
+}
+
+// Flavors
+#flavors {
+	margin-top: -2rem;
+	position: relative;
+	z-index: 9;
+
+	h1 {
+		font-weight: 700;
+		.new {
+			display: inline-block;
+
+			&:after {
+				content: url(../../assets/images/flavor-newtag.png);
+				display: inline-block;
+				margin-left: 1rem;
+			}
+		}
+	}
+
+	.flavor-cucumber {
+		background: $cucumber;
+		padding: 6rem 1rem;
+	}
+	.flavor-peach {
+		background: $peach;
+		padding: 6rem 1rem;
+	}
+	.flavor-original {
+		background: $original;
+		padding: 6rem 1rem;
+	}
+}
+
+.slick-next, .slick-prev {
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	padding: 0;
+	border-color: $white;
+	border-right-width: 0px;
+	border-top-width: 0px;
+	border-bottom-width: 4px;
+	border-left-width: 4px;
+	border-radius: 5px;
+	outline: none;
+	transform: translate3d(0,0,0);
+	display: none !important;
+	@media #{$large-up} {
+		display: inline-block !important;
+	}
+	&:hover {
+		background: none;
+	}
+}
+
+.slick-next {
+	right: 5%;
+	transform: rotate(-136deg);
+	top: 40%;
+}
+
+.slick-prev {
+	left: 5%;
+	transform: rotate(40deg);
+	top: 40%;
+}
+
+// Center Image
+#image-center {
+	background: url(../../assets/images/recovery-water-runner.jpg) no-repeat right center;
+	background-attachment: scroll;
+	background-size: cover;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+	height: 550px!important;
+	margin-top: -2rem;
+		@media #{$large-up} {
+			background-attachment: fixed;
+		}	
+}
+
+// Benefits
+#benefits {
+	background: $cucumber;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	margin-top: -2rem;
+	padding: 3rem 1rem 2.5rem;
+	transform: skewY(-2deg);
+		-webkit-transform: skewY(-2deg);
+		-o-transform: skewY(-2deg);
+		-moz-transform: skewY(-2deg);
+	position: relative;
+	z-index: 7;
+		
+	.row {
+		transform: skewY(2deg);
+			-webkit-transform: skewY(2deg);
+			-o-transform: skewY(2deg);
+			-moz-transform: skewY(2deg);
+	}
+}
+
+// Sunset Image
+#image-sunset {
+	background: url(../../assets/images/bg-image-sunset.jpg) no-repeat right top;
+	background-attachment: scroll;
+	background-size: cover;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+	height: 550px!important;
+	margin-top: -2rem;
+		@media #{$large-up} {
+			background-attachment: fixed;
+		}	
+}
+
+// Technology
+#technology {
+	background: $original;
+	padding: 4rem 1rem;
+	transform: skewY(2deg);
+		-webkit-transform: skewY(2deg);
+		-o-transform: skewY(2deg);
+		-moz-transform: skewY(2deg);
+	position: relative;
+	z-index: 5;
+	margin-top: -2rem;
+	.row {
+		transform: skewY(-2deg);
+			-webkit-transform: skewY(-2deg);
+			-o-transform: skewY(-2deg);
+			-moz-transform: skewY(-2deg);
+	}
+}
+
+// Bottom Image
+#image-bottom {
+	background: url(../../assets/images/bg-image-bottom.jpg) no-repeat center center;
+	background-attachment: scroll;
+	background-size: cover;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+	height: 500px;
+	position: relative;
+	z-index: 3;
+	margin-top: -3rem;
+		@media #{$large-up} {
+			background-attachment: fixed;
+			height: 680px;
+		}
+
+	#triangle-holder {
+			position: absolute;
+			bottom: 0;
+				@media #{$medium-up} {
+					bottom: -4rem;
+				}
+				@media #{$large-up} {
+					bottom: -6rem;
+				}
+
+		#triangle-left { 
+		    width: 0; 
+		    height: 0; 
+		    border-bottom: 20vw solid $white; 
+		    border-right: 100vw solid transparent;
+		    float: left;
+		}
+
+		#triangle-right {
+			width: 0;
+			height: 0;
+			border-bottom: 20vw solid $white;
+			border-left: 100vw solid transparent;
+		}
+	}
+			
+}
+
+// Call to Action/ Special Offer
+#offer {
+	position: relative;
+	z-index: 4;
+	
+	@media #{$large-up} {
+		height: 500px;
+		background: url(../../assets/images/bg-offer.jpg) no-repeat center center;
+	}
+
+	.inner-content {
+		a.button.tiny {margin-left: 1rem;}
+		@media #{$large-up} {
+			@include vertical-align;
+		}
+	}
+}
+
+//404 Page 
+.error404 {
+		@media #{$medium-up} {
+		background: url(../../assets/images/bg-404.jpg) no-repeat center right;
+			background-size: cover;
+				-webkit-background-size: cover;
+				-moz-background-size: cover;
+				-o-background-size: cover;
+		}
+		@media #{$large-up} {
+			background-position: center center;
+		}
+
+	#content {
+		@media #{$medium-up} {
+			height: 70vh;
+		}
+	}
+	#inner-content {
+		@media #{$medium-up} {
+			@include vertical-align;
+			background: rgba(255,255,255,0.8);
+			@media #{$large-up} {
+				background: transparent;
+			}
+		}
+		.center {
+			display: table;
+			margin: 0 auto;
+			float: none;
+		}
+		h1 {
+			font-weight: 300;
+			&:after {display: none;}
+			@media #{$large-up} {
+				font-size: rem-calc(60);
+			}
+		}
+	}
+}
+
+
+.hentry {
+
+	header {}
+
+	footer {}
+
+} /* end .hentry */
+
+.single-title {}
+
+.title {
+	background: $primary-color;
+	padding: 3rem 2rem;
+	position: relative;
+	top: -4rem;
+	padding: 6rem 2rem 2rem;
+	transform: skewY(2deg);
+		-moz-transform: skewY(2deg);
+		-o-transform: skewY(2deg);
+		-webkit-transform: skewY(2deg);
+
+	h1 {
+		color: $white;
+		transform: skewY(-2deg);
+			-moz-transform: skewY(-2deg);
+			-o-transform: skewY(-2deg);
+			-webkit-transform: skewY(-2deg);
+	}
+}
+
+.page-title {
+	font-weight: 300;
+}
+
+/* post meta */
+.byline {
+	color: #999;
+	time {}
+}
+
+/* entry content */
+.entry-content {
+
+	p {}
+
+	ul, ol, table, dl {}
+
+	ul, ol {
+
+		li {}
+
+		}
+
+	ul {
+
+		li {}
+
+		}
+
+	ol {
+
+		li {}
+
+		}
+
+	blockquote {
+
+		&:before {}
+
+		}
+
+	dl {}
+
+	dt {}
+
+	dd {
+		margin-left: 0;
+		font-size: 0.9em;
+		color: #787878;
+		margin-bottom: 1.5em;
+		}
+
+	img {
+		max-width: 100%;
+		height: auto;
+		}
+
+		/*
+		image alignment on a screen this size may be
+		a bit difficult. It's set to start aligning
+		and floating images at the next breakpoint,
+		but it's up to you. Feel free to change it up.
+		*/
+	.alignleft, img.alignleft {}
+	.alignright, img.alignright {}
+	.aligncenter, img.aligncenter {}
+
+	video, object {
+		max-width: 100%;
+		height: auto;
+		}
+
+	pre {
+		background: #eee;
+		border: 1px solid #cecece;
+		padding: 10px;
+		}
+
+} /* end .entry-content */
+
+.wp-caption {
+	max-width: 100%;
+	background: #eee;
+	padding: 5px;
+
+	/* images inside wp-caption */
+	img {
+		max-width: 100%;
+		margin-bottom: 0;
+		width: 100%;
+		}
+
+	p.wp-caption-text {
+		font-size: 0.85em;
+		margin: 4px 0 7px;
+		text-align: center;
+		}
+
+} /* end .wp-caption */
+
+/* image gallery styles */
+	.gallery {
+
+		dl {
+
+			a {}
+
+			img {}
+
+		}
+
+		dt {}
+
+		dd {}
+
+} /* end .gallery */
+
+/* gallery caption styles */
+.gallery-caption {}
+.size-full {}
+.size-large {}
+.size-medium {}
+.size-thumbnail {}
+
+/******************************************************************
+PAGE NAVI STYLES
+******************************************************************/
+.pagination {
+	a {
+		&:hover {
+			color: black;
+		}
+	}
+}
+/******************************************************************
+COMMENT STYLES
+******************************************************************/
+
+/* h3 comment title */
+#comments {
+
+	/* number of comments span */
+	span {}
+
+}
+
+#respond {
+	ul {
+		margin-left: 0px;
+	}
+}
+
+.comment-nav {
+
+	ul {
+
+		li {}
+
+	}
+}
+
+
+.commentlist {
+
+	li {
+		position: relative;
+		clear: both;
+		overflow: hidden;
+		list-style-type: none;
+		margin-bottom: 1.5em;
+		padding: 0.7335em 10px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		ul.children {
+			margin: 0;
+
+			li {}
+
+			/* variations */
+			.comment {}
+			.alt {}
+			.odd {}
+			.even {}
+			.depth-1 {}           /* change number for different depth */
+			.byuser {}
+			.bypostauthor {}
+			.comment-author-admin {}
+
+		} /* end .commentlist li ul.children */
+	}
+
+	li[class*=depth-] {
+		margin-top: 1.1em;
+	}
+
+	li.depth-1 {
+		margin-left: 0;
+		margin-top: 0;
+	}
+
+	li:not(.depth-1) {
+		margin-left: 10px;
+		margin-top: 0;
+		padding-bottom: 0;
+		background: $secondary-color;
+	}
+
+	li.depth-2 {}
+	li.depth-3 {
+		background: darken($secondary-color, 5%);
+	}
+	li.depth-4 {}
+	li.depth-5 {}
+
+	/* general comment classes */
+	.alt {}
+	.odd {
+	}
+	.even {
+	}
+	.parent {}
+	.comment {}
+	.children {}
+	.pingback {}
+	.bypostauthor {}
+	.comment-author {}
+	.comment-author-admin {}
+	.thread-alt {}
+	.thread-odd {}
+	.thread-even {}
+
+	/* vcard */
+	.vcard {
+		margin-left: 50px;
+
+		cite.fn {
+			font-weight: 700;
+			font-style: normal;
+
+			a.url {}
+
+		}
+
+		time {
+			float: right;
+
+			a {
+				color: #999;
+				text-decoration: none;
+
+				&:hover {
+					text-decoration: underline;
+				}
+
+			}
+
+		}
+
+		img.photo {}
+
+		img.avatar {
+			position: absolute;
+			left: 10px;
+			padding: 2px;
+			border: 1px solid #cecece;
+			background: #fff;
+		}
+
+	} /* end .commentlist .vcard */
+
+
+	/* comment meta */
+	.comment-meta {
+
+		a {}
+
+	}
+
+	.commentmetadata {
+
+		a {}
+
+	}
+
+	/* comment content */
+	.comment_content {
+
+		p {
+			margin: 0.7335em 0 1.5em;
+			font-size: 1em;
+			line-height: 1.5em;
+		}
+
+	} /* end .commentlist .comment_content */
+
+	/* comment reply link */
+	.comment-reply-link {
+		@include button($padding: $button-sml);
+		float: right;
+
+		&:hover,
+		&:focus {
+		
+		}
+
+	} /* end .commentlist .comment-reply-link */
+
+} /* end .commentlist */
+
+/******************************************************************
+COMMENT FORM STYLES
+******************************************************************/
+
+.respond-form {
+	margin: 1.5em 10px;
+	padding-bottom: 2.2em;
+
+	form {
+		margin: 0.75em 0;
+
+		li {
+			list-style-type: none;
+			clear: both;
+			margin-bottom: 0.7335em;
+
+			label,
+			small {
+				display: none;
+			}
+		}
+
+		input[type=text],
+		input[type=email],
+		input[type=url],
+		textarea {
+			padding: 3px 6px;
+			background: #efefef;
+			border: 2px solid #cecece;
+			line-height: 1.5em;
+
+			&:focus {
+				background: #fff;
+			}
+
+			/* form validation */
+			&:invalid {
+				outline: none;
+				border-color: #fbc2c4;
+				background-color: #f6e7eb;
+				-webkit-box-shadow: none;
+				   -moz-box-shadow: none;
+				    -ms-box-shadow: none;
+						box-shadow: none;
+			}
+		}
+
+		input[type=text],
+		input[type=email],
+		input[type=url] {
+			max-width: 400px;
+			min-width: 250px;
+		}
+
+		textarea {
+			resize: none;
+			width: 97.3%;
+			height: 150px;
+		}
+
+	}
+}
+
+	/* comment submit button */
+	#submit {}
+
+	/* comment form title */
+	#comment-form-title {
+		margin: 0 0 1.1em;
+	}
+
+	/* cancel comment reply link */
+	#cancel-comment-reply {
+		a {}
+	}
+
+	/* logged in comments */
+	.comments-logged-in-as {}
+
+	/* allowed tags */
+	#allowed_tags {
+		margin: 1.5em 10px 0.7335em 0;
+	}
+
+	/* no comments */
+	.nocomments {
+		margin: 0 20px 1.1em;
+	}
+
+/*********************
+SIDEBARS & ASIDES
+*********************/
+
+.sidebar {
+}
+
+	#searchsubmit {
+	}
+
+	.widgettitle {}
+
+	.widget {
+		ul {
+			margin: 0;
+
+			li {
+				list-style: none;
+
+				&:first-child {}
+
+				&:last-child {}
+
+				a {}
+
+				/* deep nesting */
+				ul {}
+
+			}
+
+		}
+		@media #{$medium-up} {
+			padding: 0 10px;
+			margin: 2.2em 0;
+  		}
+
+	}
+
+#sidebar-offcanvas {
+	.widgettitle {
+		color: #fff;
+	}	
+}
+/*********************
+FOOTER STYLES
+*********************/
+
+.footer {
+	clear: both;
+	margin-top: 1rem;
+	background: $primary-color;
+	color: $white;
+
+	a {
+		color: $white;
+		&:hover {
+			color: $original;
+		}
+	}
+
+	h3 {
+		color: $white;
+		padding-top:1rem;
+		&:after {display: none;}
+	}
+
+	#inner-footer {
+		padding-top: 1rem;
+
+		.social {
+			font-family: $icon-font-family;
+			font-size: 1.3rem;
+			padding-top:1.2rem;
+		}
+	}
+} // .footer
+
+.copyright { 
+    border-top: 1px solid #0c313b;
+    border-bottom: 1px solid #0c313b;
+    margin: 1rem 0;
+    padding: 1rem 0;
+}
+
+.disclaimer {
+	font-size: rem-calc(12);
+	margin-top: 1rem;
+}
+	
+/*********************
+FOUNDATION STYLES
+*********************/
+.clearing-assembled.clearing-blackout a:hover {
+	background: none;
+}
+
+/*********************
+PLUGIN STYLES
+*********************/
+// Makes Gravity Forms play nice with Foundation Form styles
+.gform_body ul {
+    list-style: none outside none;
+    margin: 0;
+}
+
+// Slick Slider
+.slick-slide img {
+  display: inline!important;
+}
+
+// Simple Locator
+.wpsl-map {
+  height: 480px!important;
+}
+
+.simple-locator-form {
+	.address-input {
+		@media #{$large-up} {
+			width: 26%!important;
+		}
+	}
+
+	.distance {
+		@media #{$large-up} {
+  			float: left!important;
+  			margin-left: 1.5rem!important;
+  			width: 25%!important;
+		}
+	}
+
+	.submit {
+		margin-bottom: 0px;
+		padding-top: 0px;
+		@media #{$medium-up} {
+			padding-top: 20px!important;
+		}
+  		@media #{$large-up} {
+  			float: left!important;
+  			clear: none!important;
+  			margin-left: 1rem!important;
+  			padding-top: 10px!important;
+		}
+	}
+
+	.geo_button_cont {
+		margin: 0px;
+		padding-top: 0px;
+		@media #{$medium-up} {
+			padding-top: 20px!important;
+		}
+		@media #{$large-up} {
+			padding-top: 10px!important;
+			margin: 0 0 20px 10px;
+		}
+	}
+	
+	button.wpslsubmit {			
+		width: 100% !important;
+	}
+
+	.alert-error {
+		font-size: 1.5rem!important;
+		text-align: center!important;
+		margin-top: 2rem!important;
+	}
+
+} // simple-locator-form 
+
+.gm-style-iw a {
+  display: none!important;
+}
